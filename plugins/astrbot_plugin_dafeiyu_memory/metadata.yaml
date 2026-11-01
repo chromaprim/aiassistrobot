@@ -1,0 +1,6 @@
+name: dafeiyu_memory
+display_name: 大肥鱼便携记忆
+desc: 多人私聊和群聊的隔离记忆、人格文件和可选自动整理，无需 Embedding 服务。
+version: v1.2.0
+author: chromaprim
+repo: https://github.com/chromaprim/aiassistrobot

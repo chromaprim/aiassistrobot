@@ -1,0 +1,14 @@
+data/
+napcat/
+logs/
+backups/
+dist/
+.env
+credentials.txt
+.initialized
+__pycache__/
+*.pyc
+*.partial
+*.sqlite*
+*.db
+*.log

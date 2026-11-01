@@ -1,0 +1,30 @@
+name: Verify packages
+on:
+  push:
+    branches: [main, 'codex/**']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -X utf8 -m unittest discover -s tests -v
+      - run: python -X utf8 scripts/build_release.py
+      - if: runner.os == 'Linux'
+        run: |
+          bash -n setup.sh first-run.sh install-docker.sh
+          docker compose config --quiet
+      - if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          .\manage.cmd status
+          if ($LASTEXITCODE -ne 1) { throw 'Fresh install must refuse status until configured.' }
+          exit 0

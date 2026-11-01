@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "explicit memory command: PASS",
+    "real AstrBot -> plugin -> mock API -> OneBot reply: PASS",
+    "automatic memory extraction with mock API: PASS",
+    "multiple users, group/member memory isolation and @ gate: PASS",
+    "restart plus new conversation retains memory: PASS"
+  ],
+  "model_calls": 13,
+  "real_qq": false,
+  "real_deepseek": false,
+  "linux_containers": false
+}
